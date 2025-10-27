@@ -10,32 +10,128 @@ body {
 .contact {
     display: flex;
     align-items: center;
-    padding: 10px;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    justify-content: flex-start;
+    padding: 12px 10rem;
     background: rgb(71, 193, 160);
     color: white;
-
     font-size: 13px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.contact > span,
+.contact > img {
+    display: inline-flex;
+    align-items: center;
 }
 
 .miniicon {
-    padding: 1px;
+    padding: 0;
     margin-left: 20px;
-    margin-right: 3px;
-    width: 12px;
-    height: auto;
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    filter: brightness(0) invert(1);
 }
 
 .socmed {
     margin-left: auto;
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    align-items: center;
+}
+
+.socmed a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.socmed a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .socmed img {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
+    filter: brightness(0) invert(1);
+}
+@media (max-width: 1024px) {
+    .contact {
+        padding: 12px 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 12px 1.5rem;
+        font-size: 11px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .contact > span {
+        font-size: 11px;
+    }
+    
+    .miniicon {
+        margin-left: 8px;
+        width: 12px;
+        height: 12px;
+    }
+    
+    .socmed {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+    }
+    
+    .socmed a {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .socmed img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 10px 1rem;
+        font-size: 10px;
+        gap: 5px;
+    }
+    
+    .contact > span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 3px 0;
+    }
+    
+    .miniicon {
+        margin-left: 0;
+        display: inline-block;
+    }
+    
+    .socmed {
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .socmed a {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 nav {
@@ -1449,3 +1545,661 @@ footer {
   content: '* ';
   color: #5dd3c1;
 }
+/* ========================================
+   A. NAVIGASI TOGGLE (MENU MOBILE)
+   ======================================== */
+.menu-toggle {
+    display: none;
+    background: rgb(71, 193, 160);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background: rgb(61, 173, 145);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background: white;
+        flex-direction: column;
+        width: 250px;
+        height: calc(100vh - 80px);
+        padding: 20px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+    
+    .menu.active {
+        right: 0;
+    }
+    
+    .menu a {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+/* ========================================
+   B. TOMBOL "BACK TO TOP"
+   ======================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgb(71, 193, 160);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: rgb(61, 173, 145);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   C. THEME SWITCHER (TERANG/GELAP)
+   ======================================== */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Dark Theme Variables */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f7fa;
+    --bg-tertiary: #eef4fe;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-tertiary: #5a6c7d;
+    --border-color: #e0e0e0;
+    --card-bg: #ffffff;
+    --header-bg: rgb(71, 193, 160);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --bg-tertiary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #8fa5b8;
+    --border-color: #404040;
+    --card-bg: #2a2a2a;
+    --header-bg: rgb(51, 153, 130);
+}
+
+/* Apply theme variables */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact {
+    background: var(--header-bg);
+}
+
+nav {
+    background-color: var(--card-bg);
+}
+
+#about,
+.content2,
+#news,
+#contact,
+#testimonials {
+    background: var(--bg-tertiary);
+}
+
+.cardabout td,
+.cause-card,
+.volunteer-form,
+.news-article,
+.sidebar-search,
+.sidebar-section,
+.contact-right,
+.donation-form-box {
+    background: var(--card-bg);
+}
+
+.cardabout h1,
+.news-main h1,
+.content1 h1,
+.contact-left h2,
+.contact-right h2,
+.testimonials-container h2,
+.profile-content h1,
+.news-article-content h2 {
+    color: var(--text-tertiary);
+}
+
+.profile-content p,
+.news-article-content p,
+.contact-right p,
+.cause-description,
+.article-meta,
+.recent-news-info h4,
+.categories-list a {
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea,
+.amount-input-group input,
+.donation-email-input,
+.contact-form-group input,
+.contact-form-group textarea,
+.newsletter-form input,
+.search-box input {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .slide::after {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .menu {
+    background: var(--card-bg);
+}
+
+[data-theme="dark"] .logo h1 {
+    color: rgb(71, 193, 160);
+}
+
+[data-theme="dark"] .menu a {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .quote-text {
+    color: var(--text-primary);
+}
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE
+   ======================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .contact,
+    nav {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    
+    #about {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    
+    .profile img[alt=profilefoto] {
+        margin-left: 3rem;
+    }
+    
+    .content2 h1 {
+        margin-left: 3rem;
+        margin-right: 5rem;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header Contact */
+    .contact {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 1rem;
+        font-size: 11px;
+        gap: 10px;
+    }
+    
+    .contact span {
+        display: block;
+    }
+    
+    .miniicon {
+        margin-left: 0;
+    }
+    
+    .socmed {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Navigation */
+    nav {
+        padding: 10px 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .logo table {
+        width: 100%;
+    }
+    
+    .logo h1 {
+        font-size: 18px;
+    }
+    
+    .logo h3 {
+        font-size: 10px;
+    }
+    
+    .logoicon {
+        width: 40px;
+    }
+    
+    /* Slider */
+    .slider {
+        height: 400px;
+    }
+    
+    .slide::after {
+        width: 60%;
+    }
+    
+    .slide-content {
+        right: 2%;
+        top: 75%;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.85rem;
+    }
+    
+    /* Content 1 */
+    .content1 {
+        padding: 2rem 1rem;
+        padding-bottom: 4rem;
+    }
+    
+    .content1 h1 {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .content1 table {
+        width: 100%;
+    }
+    
+    .content1 td {
+        display: block;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .content1 td img {
+        width: 50px;
+        height: auto;
+    }
+    
+    /* About Section */
+    #about {
+        padding: 2rem 1rem;
+    }
+    
+    #about table {
+        display: block;
+    }
+    
+    #about td {
+        display: block;
+        width: 100% !important;
+    }
+    
+    #about img {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .cardabout {
+        width: 100%;
+    }
+    
+    .cardabout table {
+        width: 100%;
+        border-spacing: 10px;
+    }
+    
+    .cardabout tr > td {
+        display: block;
+        width: 100% !important;
+    }
+    
+    .cardabout td {
+        padding: 1.5rem;
+    }
+    
+    .stats h1 {
+        font-size: 2rem;
+        margin-left: 0;
+    }
+    
+    .stats p {
+        margin-left: 0;
+    }
+    
+    /* Profile Section */
+    .profile {
+        flex-direction: column;
+        padding: 3rem 1rem;
+        gap: 30px;
+    }
+    
+    .profile img[alt=profilefoto] {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+    
+    .profile-content {
+        width: 100%;
+    }
+    
+    /* Content 2 */
+    .content2 {
+        flex-direction: column;
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+    
+    .content2 h1 {
+        margin: 0 0 2rem 0;
+        font-size: 1.8rem;
+    }
+    
+    .content2 a {
+        margin: 0 0 1rem 0;
+        display: block;
+    }
+    
+    .content2 button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Causes Section */
+    #causes {
+        padding: 3rem 1rem;
+    }
+    
+    .cause-container h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .causes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Volunteer Section */
+    #volunteer {
+        padding: 3rem 1rem;
+    }
+    
+    .volunteer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .volunteer-left h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .volunteer-form {
+        padding: 25px;
+    }
+    
+    .volunteer-form h2 {
+        font-size: 22px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .volunteer-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .volunteer-info h3 {
+        font-size: 24px;
+    }
+    
+    .volunteer-info p {
+        font-size: 14px;
+    }
+    
+    /* News Section */
+    #news {
+        padding: 3rem 1rem;
+    }
+    
+    .news-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .news-main h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .news-article-image {
+        height: 250px;
+    }
+    
+    .article-categories {
+        flex-wrap: wrap;
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    .news-article-content {
+        padding: 20px;
+    }
+    
+    .news-article-content h2 {
+        font-size: 22px;
+    }
+    
+    .article-meta {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .news-sidebar {
+        position: static;
+    }
+    
+    /* Testimonials */
+    #testimonials {
+        padding: 3rem 1rem;
+    }
+    
+    .testimonials-container h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    
+    .quote-text {
+        font-size: 20px;
+    }
+    
+    .quote-text::before,
+    .quote-text::after {
+        display: none;
+    }
+    
+    .testimonial-avatars {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Contact Section */
+    #contact {
+        padding: 3rem 1rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-left h2,
+    .contact-right h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .contact-right {
+        padding: 25px;
+    }
+    
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Donation Section */
+    #donate {
+        padding: 3rem 1rem;
+    }
+    
+    .donation-form-box {
+        padding: 30px 20px;
+    }
+    
+    .donation-form-box h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 40px 0 0 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 1rem 30px 1rem;
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .content1 h1,
+    .cause-container h1,
+    .volunteer-left h1,
+    .news-main h1,
+    .testimonials-container h2,
+    .contact-left h2,
+    .contact-right h2 {
+        font-size: 24px;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.75rem;
+    }
+    
+    .donation-form-box h1 {
+        font-size: 24px;
+    }
+    
+    .volunteer-form,
+    .contact-right,
+    .donation-form-box {
+        padding: 20px 15px;
+    }
+    
+    .volunteer-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
+}
+
