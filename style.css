@@ -1545,9 +1545,6 @@ footer {
   content: '* ';
   color: #5dd3c1;
 }
-/* ========================================
-   A. NAVIGASI TOGGLE (MENU MOBILE)
-   ======================================== */
 .menu-toggle {
     display: none;
     background: rgb(71, 193, 160);
@@ -1593,9 +1590,6 @@ footer {
     }
 }
 
-/* ========================================
-   B. TOMBOL "BACK TO TOP"
-   ======================================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1626,9 +1620,6 @@ footer {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ========================================
-   C. THEME SWITCHER (TERANG/GELAP)
-   ======================================== */
 .theme-toggle {
     background: rgba(255, 255, 255, 0.2);
     border: none;
@@ -1670,7 +1661,6 @@ footer {
     --header-bg: rgb(51, 153, 130);
 }
 
-/* Apply theme variables */
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
@@ -1757,11 +1747,7 @@ nav {
 [data-theme="dark"] .quote-text {
     color: var(--text-primary);
 }
-/* ========================================
-   RESPONSIVE DESIGN - MOBILE
-   ======================================== */
 
-/* Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
     .contact,
     nav {
@@ -1784,9 +1770,7 @@ nav {
     }
 }
 
-/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
-    /* Header Contact */
     .contact {
         flex-direction: column;
         align-items: flex-start;
@@ -1809,7 +1793,6 @@ nav {
         justify-content: center;
     }
     
-    /* Navigation */
     nav {
         padding: 10px 1rem;
         flex-wrap: wrap;
@@ -1831,7 +1814,6 @@ nav {
         width: 40px;
     }
     
-    /* Slider */
     .slider {
         height: 400px;
     }
@@ -1853,7 +1835,6 @@ nav {
         font-size: 0.85rem;
     }
     
-    /* Content 1 */
     .content1 {
         padding: 2rem 1rem;
         padding-bottom: 4rem;
@@ -1880,7 +1861,6 @@ nav {
         height: auto;
     }
     
-    /* About Section */
     #about {
         padding: 2rem 1rem;
     }
@@ -1927,7 +1907,6 @@ nav {
         margin-left: 0;
     }
     
-    /* Profile Section */
     .profile {
         flex-direction: column;
         padding: 3rem 1rem;
@@ -1944,7 +1923,6 @@ nav {
         width: 100%;
     }
     
-    /* Content 2 */
     .content2 {
         flex-direction: column;
         padding: 3rem 1rem;
@@ -1966,7 +1944,6 @@ nav {
         max-width: 300px;
     }
     
-    /* Causes Section */
     #causes {
         padding: 3rem 1rem;
     }
@@ -1981,7 +1958,6 @@ nav {
         gap: 20px;
     }
     
-    /* Volunteer Section */
     #volunteer {
         padding: 3rem 1rem;
     }
@@ -2021,7 +1997,6 @@ nav {
         font-size: 14px;
     }
     
-    /* News Section */
     #news {
         padding: 3rem 1rem;
     }
@@ -2063,7 +2038,6 @@ nav {
         position: static;
     }
     
-    /* Testimonials */
     #testimonials {
         padding: 3rem 1rem;
     }
@@ -2092,7 +2066,6 @@ nav {
         height: 60px;
     }
     
-    /* Contact Section */
     #contact {
         padding: 3rem 1rem;
     }
@@ -2116,7 +2089,6 @@ nav {
         grid-template-columns: 1fr;
     }
     
-    /* Donation Section */
     #donate {
         padding: 3rem 1rem;
     }
@@ -2130,7 +2102,6 @@ nav {
         margin-bottom: 30px;
     }
     
-    /* Footer */
     footer {
         padding: 40px 0 0 0;
     }
@@ -2152,7 +2123,6 @@ nav {
         text-align: center;
     }
     
-    /* Back to Top Button */
     .back-to-top {
         width: 45px;
         height: 45px;
@@ -2162,7 +2132,6 @@ nav {
     }
 }
 
-/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
     .content1 h1,
     .cause-container h1,
@@ -2202,4 +2171,5 @@ nav {
         height: 50px;
     }
 }
+
 
